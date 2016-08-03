@@ -263,6 +263,107 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/03/一个调整当且页面所有TextView字体大小的工具类/" itemprop="url">
+                  TextView FontSize Util
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T16:12:07+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/03/一个调整当且页面所有TextView字体大小的工具类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/一个调整当且页面所有TextView字体大小的工具类/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一个调整字体大小的工具类"><a href="#一个调整字体大小的工具类" class="headerlink" title="一个调整字体大小的工具类"></a>一个调整字体大小的工具类</h2><p>非原创：可以自己拓展<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FontUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 为textview的fontsize设置一下，这里是再原来的基础上增大</span><br><span class="line">     * <span class="doctag">@param</span> textView</span><br><span class="line">     * <span class="doctag">@param</span> context</span><br><span class="line">     * <span class="doctag">@param</span> delaFontSize</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">tweakFontSize</span><span class="params">(TextView textView, Context context, <span class="keyword">float</span> delaFontSize )</span></span>&#123;</span><br><span class="line">            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textView.getTextSize() + PhoneUtil.sp2px(context, delaFontSize) );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 将activity里所有的textview的fontsize设置一下</span><br><span class="line">     * <span class="doctag">@param</span> activity</span><br><span class="line">     * <span class="doctag">@param</span> delaFontSize</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">tweakFontSize</span><span class="params">(Activity activity,<span class="keyword">float</span> delaFontSize)</span></span>&#123;</span><br><span class="line">        ViewGroup root = (ViewGroup)activity.findViewById(android.R.id.content);</span><br><span class="line">        tweakFontSize( root, activity, fontSize);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 将某个rootview下的fontsize都调整一下。</span><br><span class="line">     * 注意在adpater里使用的时候，只能调整一次</span><br><span class="line">     * <span class="doctag">@param</span> rootView</span><br><span class="line">     * <span class="doctag">@param</span> activity</span><br><span class="line">     * <span class="doctag">@param</span> delaFontSize</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">tweakFontSize</span><span class="params">(ViewGroup rootView, Activity activity, <span class="keyword">float</span> delaFontSize)</span></span>&#123;</span><br><span class="line">        ViewTraverse t = <span class="keyword">new</span> ViewTraverse(rootView);</span><br><span class="line">        TextView tv = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>( ( tv=t.nextTextView() ) != <span class="keyword">null</span> )&#123;</span><br><span class="line">            tweakFontSize(tv, activity, fontSize);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewTraverse</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> LinkedList&lt;ViewGroup&gt; views = <span class="keyword">new</span> LinkedList&lt;ViewGroup&gt;();</span><br><span class="line">        <span class="keyword">private</span> ViewGroup curViewGroup;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> childPos;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewTraverse</span><span class="params">(ViewGroup v)</span></span>&#123;</span><br><span class="line">            views.push(v);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> View <span class="title">next</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>( curViewGroup == <span class="keyword">null</span> || childPos&gt;=curViewGroup.getChildCount() )&#123;</span><br><span class="line">                <span class="keyword">if</span>( views.size()!=<span class="number">0</span> )&#123;</span><br><span class="line">                    curViewGroup = views.pop();</span><br><span class="line">                    childPos = <span class="number">0</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>( curViewGroup.getChildCount() == <span class="number">0</span> )&#123;</span><br><span class="line">                curViewGroup = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">return</span> next();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                View v = curViewGroup.getChildAt(childPos);</span><br><span class="line">                <span class="keyword">if</span>( v <span class="keyword">instanceof</span> ViewGroup)&#123;</span><br><span class="line">                    views.push((ViewGroup)v);</span><br><span class="line">                &#125;</span><br><span class="line">                childPos++;</span><br><span class="line">                <span class="keyword">return</span> v;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> TextView <span class="title">nextTextView</span><span class="params">()</span></span>&#123;</span><br><span class="line">            View v;</span><br><span class="line">            <span class="keyword">while</span>( (v=next())!=<span class="keyword">null</span> )&#123;</span><br><span class="line">                <span class="keyword">if</span>( v <span class="keyword">instanceof</span> TextView)&#123;</span><br><span class="line">                    <span class="keyword">return</span> (TextView)v;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> (TextView)v;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/03/Retrieve a Fragment from a ViewPager/" itemprop="url">
                   Retrieve a Fragment from a ViewPager
                 </a>
@@ -930,7 +1031,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
